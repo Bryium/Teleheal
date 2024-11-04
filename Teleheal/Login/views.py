@@ -15,12 +15,14 @@ class LoginView(View):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Check if the user exists with matching email and password
+        # Check if user exists and password matches
         try:
-            user = User.objects.get(email=email, password=password)
-            # Redirect to home page on successful login
-            return redirect('home')
+            user = User.objects.get(email=email)
+            if user.password == password:  # In production, compare hashed passwords instead
+                return redirect('home')  # Redirect to the home app on successful login
+            else:
+                messages.error(request, "Invalid password.")
+                return redirect('login')  # Redirect back to login page
         except User.DoesNotExist:
-            # If credentials are incorrect, show an error message
-            messages.error(request, "Invalid email or password")
-            return redirect('login')
+            messages.error(request, "Invalid email or password.")
+            return redirect('login')  # Redirect back to login page
