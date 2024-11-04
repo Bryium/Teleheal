@@ -124,53 +124,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
-        <div class="form-foot">
-            <h2>Login Form</h2>
-            <form id="loginForm" onsubmit="return validateLoginForm()">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" name="loginEmail">
-                <span class="error" id="loginEmailError"></span>
+         <div class="form-foot">
+        <h2>Login Form</h2>
+        <form id="loginForm" method="POST" action="{% url 'login' %}" onsubmit="return validateLoginForm()">
+            {% csrf_token %}
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="email">
+            <span class="error" id="loginEmailError"></span>
 
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" name="loginPassword">
-                <span class="error" id="loginPasswordError"></span>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="password">
+            <span class="error" id="loginPasswordError"></span>
 
-                <button type="submit">Login</button>
-                <p>Don’t have an account? <a href="./register.html">Create an account now</a></p>
-            </form>
-        </div>
-        </div>
+            <button type="submit">Login</button>
+            <p>Don’t have an account? <a href="{% url 'register' %}">Create an account now</a></p>
+        </form>
+    </div>
 
-        <script>
+    <script>
+        function validateLoginForm() {
+            let isValid = true;
 
-            function validateLoginForm() {
-                let isValid = true;
+            // Clear previous errors
+            document.getElementById("loginEmailError").textContent = "";
+            document.getElementById("loginPasswordError").textContent = "";
 
-                // Clear previous errors
-                document.getElementById("loginEmailError").textContent = "";
-                document.getElementById("loginPasswordError").textContent = "";
-
-                // Email validation
-                let email = document.getElementById("loginEmail").value;
-                if (email === "") {
-                    document.getElementById("loginEmailError").textContent = "Email is required.";
-                    isValid = false;
-                }
-
-                // Password validation
-                let password = document.getElementById("loginPassword").value;
-                if (password === "") {
-                    document.getElementById("loginPasswordError").textContent = "Password is required.";
-                    isValid = false;
-                }
-
-                return isValid;
+            // Email validation
+            let email = document.getElementById("loginEmail").value;
+            if (email === "") {
+                document.getElementById("loginEmailError").textContent = "Email is required.";
+                isValid = false;
             }
-        </script>
 
+            // Password validation
+            let password = document.getElementById("loginPassword").value;
+            if (password === "") {
+                document.getElementById("loginPasswordError").textContent = "Password is required.";
+                isValid = false;
+            }
 
-        <script src="js/script.js"></script>
-    </body>
+            return isValid;
+        }
+    </script>
 
-    </html>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
