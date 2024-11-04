@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teleheal</title>
+
     {% load static %}
     {# Main CSS #}
     <link rel="stylesheet" href="{% static 'style.css' %}"/>
@@ -15,10 +16,9 @@
     <!-- header -->
     <header class="header">
         <div class="logo">
-            <img src="images/logo.png" id="logo" alt="logo">
+            <img src="{% static 'images/logo.png' %}" id="logo" alt="logo">
             <h1 style="color: rgb(237, 10, 101);">Teleheal</h1>
         </div>
-
 
         <nav class="navbar">
             <a href="#">home</a>
@@ -47,9 +47,7 @@
 
                         Our services ensure that you get the <br> best healthcare without the hassle of long hospital
                         queues.</p>
-
                 </div>
-
             </div>
 
             <!-- Sidebar -->
@@ -68,7 +66,6 @@
                     </ul>
                 </aside>
             </div>
-
         </div>
     </div>
 
@@ -81,7 +78,6 @@
                 our top priorities.</p>
             <a href="#">Read more</a>
         </div>
-
     </div>
 
     <!-- about -->
@@ -95,13 +91,10 @@
                         provides better patient access throughout the care continuum.</p>
                     <a href="#">Read more</a>
                 </div>
-
             </div>
             <div class="inner-about">
                 <div class="inner-about-image">
-                    <img src="images/chi.png" alt="">
-
-
+                   <img src="{% static 'images/chi.png' %}" alt="">
                 </div>
             </div>
         </div>
@@ -131,7 +124,6 @@
                 <h2>For providers</h2>
                 <p>Our comprehensive platform delivers a digitally-enabled care model across the entire patient journey.
                 </p>
-
             </div>
 
             <div class="inner-services-content">
@@ -140,7 +132,6 @@
                 </div>
                 <h2>For payers & employers</h2>
                 <p>Our innovative platform seamlessly integrates the member digital care experience.</p>
-
             </div>
 
             <div class="inner-services-content">
@@ -150,7 +141,6 @@
                 <h2>Hardware for virtual care</h2>
                 <p>Our CarepointTM solutions enable physicians and nurses to connect with patients at any time using
                     purpose-built carts, TV kits, tablets and peripheral devices.</p>
-
             </div>
         </div>
     </div>
@@ -160,27 +150,27 @@
         <h1>Gallery</h1>
         <div class="main-gallery">
             <div class="inner-gallery">
-                <img src="images/gall1.png" alt="Gallery 1">
+              <img src="{% static 'images/gall1.png' %}" alt="Gallery 1">
             </div>
 
             <div class="inner-gallery">
-                <img src="images/gall2.png" alt="Gallery 2">
+                <img src="{% static 'images/gall2.png' %}" alt="Gallery 2">
             </div>
 
             <div class="inner-gallery">
-                <img src="images/gall3.png" alt="Gallery 3">
+               <img src="{% static 'images/gall3.png' %}" alt="Gallery 3">
             </div>
 
             <div class="inner-gallery">
-                <img src="images/gall4.png" alt="Gallery 4">
+                <img src="{% static 'images/gall4.png' %}" alt="Gallery 4">
             </div>
 
             <div class="inner-gallery">
-                <img src="images/gall5.png" alt="Gallery 5">
+                <img src="{% static 'images/gall5.png' %}" alt="Gallery 5">
             </div>
 
             <div class="inner-gallery">
-                <img src="images/gall6.png" alt="Gallery 6">
+                <img src="{% static 'images/gall6.png' %}" alt="Gallery 6">
             </div>
         </div>
     </div>
@@ -189,12 +179,11 @@
     <div class="why-choseus">
         <div class="main-chose">
             <div class="inner-chose">
-                <img src="images/cute.png" alt="Why choose us image">
+                <img src="{% static 'images/cute.png' %}" alt="Why choose us image">
             </div>
 
             <div class="inner-chose">
                 <h1>why chose us </h1>
-
                 <div class="inner-chose-content">
                     <div class="main-inner-chose">
                         <div class="chose-icon">
@@ -210,7 +199,6 @@
                     <div class="main-inner-chose">
                         <div class="chose-icon">
                             <i class="fas fa-hospital-user"></i>
-
                         </div>
                         <div class="icon-content">
                             <p>Your health and privacy are our top priorities. We use secure technology to keep your
@@ -228,20 +216,16 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-
 
     <!-- Our special doctors -->
     <div class="our-doctors">
         <h1>Our special doctors</h1>
-
         <div class="main-doctor">
             <div class="inner-doctor">
-                <img src="images/gall6.png" alt="Specail Doctor Gallery 6">
+                <img src="{% static 'images/gall6.png' %}" alt="Special Doctor Gallery 6">
                 <div class="doc-icons">
                     <div class="fab fa-facebook"></div>
                     <div class="fab fa-twitter"></div>
@@ -251,7 +235,7 @@
             </div>
 
             <div class="inner-doctor">
-                <img src="images/gall2.png" alt="Specail Doctor Gallery 2">
+                <img src="{% static 'images/gall5.png' %}" alt="Special Doctor Gallery 5">
                 <div class="doc-icons">
                     <div class="fab fa-facebook"></div>
                     <div class="fab fa-twitter"></div>
@@ -261,7 +245,7 @@
             </div>
 
             <div class="inner-doctor">
-                <img src="images/gall5.png" alt="Specail Doctor Gallery 5">
+                <img src="{% static 'images/gall4.png' %}" alt="Special Doctor Gallery 4">
                 <div class="doc-icons">
                     <div class="fab fa-facebook"></div>
                     <div class="fab fa-twitter"></div>
@@ -270,64 +254,60 @@
                 </div>
             </div>
 
+            <div class="inner-doctor">
+                <img src="{% static 'images/gall3.png' %}" alt="Special Doctor Gallery 3">
+                <div class="doc-icons">
+                    <div class="fab fa-facebook"></div>
+                    <div class="fab fa-twitter"></div>
+                    <div class="fab fa-instagram"></div>
+                    <div class="fab fa-linkedin"></div>
+                </div>
+            </div>
 
+            <div class="inner-doctor">
+                <img src="{% static 'images/gall2.png' %}" alt="Special Doctor Gallery 2">
+                <div class="doc-icons">
+                    <div class="fab fa-facebook"></div>
+                    <div class="fab fa-twitter"></div>
+                    <div class="fab fa-instagram"></div>
+                    <div class="fab fa-linkedin"></div>
+                </div>
+            </div>
+
+            <div class="inner-doctor">
+                <img src="{% static 'images/gall1.png' %}" alt="Special Doctor Gallery 1">
+                <div class="doc-icons">
+                    <div class="fab fa-facebook"></div>
+                    <div class="fab fa-twitter"></div>
+                    <div class="fab fa-instagram"></div>
+                    <div class="fab fa-linkedin"></div>
+                </div>
+            </div>
         </div>
     </div>
-
 
     <!-- Footer -->
-    <div class="footer">
-        <div class="main-footer">
-            <div class="inner-footer">
-                <img src="images/logo.png" alt="">
-                <h1 style="color: rgb(237, 10, 101);">Teleheal</h1>
-            </div>
-
-            <div class="inner-footer">
-                <h2>Our Services</h2>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Gallery</a>
-                <a href="#">Contact</a>
-            </div>
-
-            <div class="inner-footer">
-                <h2>Contact Us</h2>
-                <a href="#">Email: info@teleheal.com</a>
-                <a href="#">Phone: +254-734-567-890</a>
-                <a href="#">Address: 123 Ngong Second Avennue St</a>
-                <a href="#">Location: Upper Hills</a>
-                <a href="#">City: Nairobi City</a>
-
-            </div>
-
-            <div class="inner-footer">
-                <h2>Connect With Us</h2>
-
-                <a href="#">
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h1>Follow Us</h1>
+                <div class="social-icons">
                     <div class="fab fa-facebook"></div>
-                </a>
-                <a href="#">
                     <div class="fab fa-twitter"></div>
-                </a>
-                <a href="#">
                     <div class="fab fa-instagram"></div>
-                </a>
-                <a href="#">
                     <div class="fab fa-linkedin"></div>
-                </a>
-                <a href="#">
-                    <div class="fab fa-whatsapp"></div>
-                </a>
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <h1>Contact</h1>
+                <div class="contact-info">
+                    <p>Email: info@teleheal.com</p>
+                    <p>Phone: +254 700 000 000</p>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            <h1>©2024 Teleheal. All rights reserved.</h1>
-        </div>
-
-    </div>
-    <script src="js/script.js"></script>
+    </footer>
 </body>
 
 </html>
