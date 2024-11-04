@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from Teleheal.Home import views
+from Home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
