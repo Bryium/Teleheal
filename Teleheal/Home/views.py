@@ -10,4 +10,8 @@ def home(request):
 
 def login_view(request):
     template = loader.get_template('login.html')
-    return HttpResponse(template.render({}, request))  
+    return HttpResponse(template.render({}, request))
+
+def register_view(request):
+    template = loader.get_template('register.html')
+    return HttpResponse(template.render({}, request))
