@@ -2,8 +2,8 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
-from Registration.models import User
-
+from django.contrib.auth import authenticate, login  # Import authenticate and login
+from Registration.models import User  # Assuming you're using a custom User model
 
 class LoginView(View):
     def get(self, request):
@@ -19,6 +19,7 @@ class LoginView(View):
         try:
             user = User.objects.get(email=email)
             if user.password == password:  # In production, compare hashed passwords instead
+                login(request, user)  # Log in the user
                 return redirect('home')  # Redirect to the home app on successful login
             else:
                 messages.error(request, "Invalid password.")
