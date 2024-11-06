@@ -6,9 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teleheal</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    {% load static %}
+    {# Main CSS #}
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+
+     {# Main javascript #}
+    <link rel="stylesheet" href="{% static 'script.js' %}"/>
+
+{# Font Awesome #}
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.3-web/css/all.min.css' %}">
+
+{# Swipper Link #}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 </head>
 <style>
     body {
