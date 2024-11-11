@@ -143,7 +143,8 @@
 <body>
 <div class="form-container">
     <h2>Registration Form</h2>
-    <form id="registrationForm" onsubmit="return validateRegistrationForm()">
+    <form id="registrationForm" method="post" action="/Registration/">
+        {% csrf_token %}
         <label for="name">Name:</label>
         <input type="text" id="name" name="name">
         <span class="error" id="nameError"></span>
@@ -436,77 +437,78 @@
 });
 
 function validateRegistrationForm() {
-        // Clear previous error messages
-        document.getElementById("nameError").innerText = "";
-        document.getElementById("emailError").innerText = "";
-        document.getElementById("passwordError").innerText = "";
-        document.getElementById("confirmPasswordError").innerText = "";
-        document.getElementById("ageError").innerText = "";
-        document.getElementById("genderError").innerText = "";
-        document.getElementById("countryError").innerText = "";
+    // Clear previous error messages
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passwordError").innerText = "";
+    document.getElementById("confirmPasswordError").innerText = "";
+    document.getElementById("ageError").innerText = "";
+    document.getElementById("genderError").innerText = "";
+    document.getElementById("countryError").innerText = "";
 
-        let isValid = true;
+    let isValid = true;
 
-        // Validate Name
-        const name = document.getElementById("name").value;
-        if (!name) {
-            document.getElementById("nameError").innerText = "Name is required.";
-            isValid = false;
-        }
+    // Validate Name
+    const name = document.getElementById("name").value;
+    if (!name) {
+        document.getElementById("nameError").innerText = "Name is required.";
+        isValid = false;
+    }
 
-        // Validate Email
-        const email = document.getElementById("email").value;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email) {
-            document.getElementById("emailError").innerText = "Email is required.";
-            isValid = false;
-        } else if (!emailPattern.test(email)) {
-            document.getElementById("emailError").innerText = "Invalid email format.";
-            isValid = false;
-        }
+    // Validate Email
+    const email = document.getElementById("email").value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+        document.getElementById("emailError").innerText = "Email is required.";
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerText = "Invalid email format.";
+        isValid = false;
+    }
 
-        // Validate Password
-        const password = document.getElementById("password").value;
-        if (!password) {
-            document.getElementById("passwordError").innerText = "Password is required.";
-            isValid = false;
-        } else if (password.length < 6) {
-            document.getElementById("passwordError").innerText = "Password must be at least 6 characters.";
-            isValid = false;
-        }
+    // Validate Password
+    const password = document.getElementById("password").value;
+    if (!password) {
+        document.getElementById("passwordError").innerText = "Password is required.";
+        isValid = false;
+    } else if (password.length < 6) {
+        document.getElementById("passwordError").innerText = "Password must be at least 6 characters.";
+        isValid = false;
+    }
 
-        // Validate Confirm Password
-        const confirmPassword = document.getElementById("confirmPassword").value;
-        if (password !== confirmPassword) {
-            document.getElementById("confirmPasswordError").innerText = "Passwords do not match.";
-            isValid = false;
-        }
+    // Validate Confirm Password
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword) {
+        document.getElementById("confirmPasswordError").innerText = "Passwords do not match.";
+        isValid = false;
+    }
 
-        // Validate Age
-        const age = document.getElementById("age").value;
-        if (age < 18 || age > 100) {
-            document.getElementById("ageError").innerText = "Age must be between 18 and 100.";
-            isValid = false;
-        }
+    // Validate Age
+    const age = document.getElementById("age").value;
+    if (age < 18 || age > 100) {
+        document.getElementById("ageError").innerText = "Age must be between 18 and 100.";
+        isValid = false;
+    }
 
-        // Validate Gender
-        const gender = document.querySelector('input[name="gender"]:checked');
-        if (!gender) {
-            document.getElementById("genderError").innerText = "Gender is required.";
-            isValid = false;
-        }
+    // Validate Gender
+    const gender = document.querySelector('input[name="gender"]:checked');
+    if (!gender) {
+        document.getElementById("genderError").innerText = "Gender is required.";
+        isValid = false;
+    }
 
-        // Validate Country
-        const country = document.getElementById("country").value;
-        if (!country) {
-            document.getElementById("countryError").innerText = "Country is required.";
-            isValid = false;
-        }
+    // Validate Country
+    const country = document.getElementById("country").value;
+    if (!country) {
+        document.getElementById("countryError").innerText = "Country is required.";
+        isValid = false;
+    }
 
-        return isValid;
+    return isValid;
+}
 
-
-function submitForm() {
+function submitForm(event) {
+    event.preventDefault()
     const data = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
@@ -515,6 +517,12 @@ function submitForm() {
         gender: document.querySelector('input[name="gender"]:checked').value,
         country: document.getElementById("country").value,
     };
+
+    // Validate required fields before sending the request
+    if (!data.name || !data.email || !data.password || !data.age || !data.gender || !data.country) {
+        alert("All fields are required.");
+        return;
+    }
 
     fetch("/register", {
         method: "POST",
