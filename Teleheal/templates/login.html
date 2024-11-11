@@ -119,9 +119,7 @@
 
 
         <div class="icons">
-            <div id="menubar" class="fas fa-bars"></div>
-            <a href="./login.html">Login</a>
-            <a href="./register.html">Register</a>
+
         </div>
     </header>
 
@@ -136,6 +134,8 @@
 
          <div class="form-foot">
         <h2>Login Form</h2>
+
+
         <form id="loginForm" method="POST" action="{% url 'login' %}" onsubmit="return validateLoginForm()">
             {% csrf_token %}
             <label for="loginEmail">Email:</label>

@@ -126,9 +126,7 @@
     </div>
 
     <div class="icons">
-        <div id="menubar" class="fas fa-bars"></div>
-        <a href="./login.html">Login</a>
-        <a href="./register.html">Register</a>
+
     </div>
 </header>
 
@@ -422,17 +420,11 @@
         <span class="error" id="termsError"></span>
 
         <button type="submit">Register</button>
-        <p>Already have an account? <a href="./login.html">login.</a></p>
-
-        {% if messages %}
-    <div class="alert alert-success">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    </div>
-{% endif %}
-
+        <p>Already have an Account:  <a href="{% url 'login' %}">login</a>.</p>
     </form>
+
+
+
 </div>
 
 

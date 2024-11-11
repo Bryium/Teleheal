@@ -1,9 +1,9 @@
-# Login/views.py
 from django.shortcuts import render, redirect
-from django.views import View
 from django.contrib import messages
-from django.contrib.auth import authenticate, login  # Import authenticate and login
-from Registration.models import User  # Assuming you're using a custom User model
+from django.contrib.auth import authenticate, login
+from Registration.models import User
+from django.views import View
+
 
 class LoginView(View):
     def get(self, request):
@@ -11,19 +11,23 @@ class LoginView(View):
         return render(request, 'login.html')
 
     def post(self, request):
-        # Retrieve data from the form
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Check if user exists and password matches
+        # Check if both email and password are provided
+        if not email or not password:
+            messages.error(request, "Please enter both email and password.")
+            return redirect('login')
+
         try:
             user = User.objects.get(email=email)
-            if user.password == password:  # In production, compare hashed passwords instead
-                login(request, user)  # Log in the user
-                return redirect('home')  # Redirect to the home app on successful login
+            if user.password == password:
+                login(request, user)
+                messages.success(request, f"Welcome, {user.name}!")
+                return redirect('home')
             else:
-                messages.error(request, "Invalid password.")
-                return redirect('login')  # Redirect back to login page
+                messages.error(request, "Invalid password. Please try again.")
+                return redirect('login')
         except User.DoesNotExist:
-            messages.error(request, "Invalid email or password.")
-            return redirect('login')  # Redirect back to login page
+            messages.error(request, "Invalid email or password. Please try again.")
+            return redirect('login')
