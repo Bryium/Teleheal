@@ -29,10 +29,10 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     last_login = models.DateTimeField(auto_now=True, null=True)
 
-    objects = CustomUserManager()  # Assign the custom manager
+    objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email'  # Set the email field as the unique identifier
-    REQUIRED_FIELDS = ['name']  # Fields required for user creation
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
 
     def __str__(self):
         return self.name
