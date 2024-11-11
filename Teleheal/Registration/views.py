@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import User
@@ -25,6 +26,7 @@ def register(request):
         user.save()
 
         # Redirect to a success page or render a response
-        return redirect('/Registration/success/')  # Redirect to a success URL or render a success template
+        messages.success(request, "Registration successfully!")
+        return redirect('/login/')
 
-    return render(request, "registration/register.html")  # If GET request, render the registration form
+    return render(request, "register.html")
