@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTH_USER_MODEL = 'Registration.User'
+
 # Message storage backend
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
