@@ -27,6 +27,6 @@ def register(request):
 
         # Redirect to a success page or render a response
         messages.success(request, "Registration successfully!")
-        return redirect('/login/')
+        return redirect('login')
 
     return render(request, "register.html")
