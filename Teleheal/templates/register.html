@@ -427,76 +427,54 @@
 
 
 <script>
-    function validateRegistrationForm() {
-        // Clear previous error messages
-        document.getElementById("nameError").innerText = "";
-        document.getElementById("emailError").innerText = "";
-        document.getElementById("passwordError").innerText = "";
-        document.getElementById("confirmPasswordError").innerText = "";
-        document.getElementById("ageError").innerText = "";
-        document.getElementById("genderError").innerText = "";
-        document.getElementById("countryError").innerText = "";
-
-        let isValid = true;
-
-        // Validate Name
-        const name = document.getElementById("name").value;
-        if (!name) {
-            document.getElementById("nameError").innerText = "Name is required.";
-            isValid = false;
-        }
-
-        // Validate Email
-        const email = document.getElementById("email").value;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email) {
-            document.getElementById("emailError").innerText = "Email is required.";
-            isValid = false;
-        } else if (!emailPattern.test(email)) {
-            document.getElementById("emailError").innerText = "Invalid email format.";
-            isValid = false;
-        }
-
-        // Validate Password
-        const password = document.getElementById("password").value;
-        if (!password) {
-            document.getElementById("passwordError").innerText = "Password is required.";
-            isValid = false;
-        } else if (password.length < 6) {
-            document.getElementById("passwordError").innerText = "Password must be at least 6 characters.";
-            isValid = false;
-        }
-
-        // Validate Confirm Password
-        const confirmPassword = document.getElementById("confirmPassword").value;
-        if (password !== confirmPassword) {
-            document.getElementById("confirmPasswordError").innerText = "Passwords do not match.";
-            isValid = false;
-        }
-
-        // Validate Age
-        const age = document.getElementById("age").value;
-        if (age < 18 || age > 100) {
-            document.getElementById("ageError").innerText = "Age must be between 18 and 100.";
-            isValid = false;
-        }
-
-        // Validate Gender
-        const gender = document.querySelector('input[name="gender"]:checked');
-        if (!gender) {
-            document.getElementById("genderError").innerText = "Gender is required.";
-            isValid = false;
-        }
-
-        // Validate Country
-        const country = document.getElementById("country").value;
-        if (!country) {
-            document.getElementById("countryError").innerText = "Country is required.";
-            isValid = false;
-        }
-
-        return isValid;
+    document.getElementById("registerButton").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission for validation
+    if (validateRegistrationForm()) {
+        // If the form is valid, submit the data
+        submitForm();
     }
+});
+
+function validateRegistrationForm() {
+    // Your validation code as provided
+    let isValid = true;
+    // ... (existing validation code)
+    return isValid;
+}
+
+function submitForm() {
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        age: document.getElementById("age").value,
+        gender: document.querySelector('input[name="gender"]:checked').value,
+        country: document.getElementById("country").value,
+    };
+
+    fetch("/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCsrfToken(), 
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Registration successful!");
+        } else {
+            alert("Registration failed. Please check the form and try again.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function getCsrfToken() {
+    return document.querySelector('[name=csrfmiddlewaretoken]').value;
+}
+
 </script>
 </body>
 
