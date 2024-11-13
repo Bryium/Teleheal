@@ -112,7 +112,7 @@ html {
 
     background-size: cover;
     background-repeat: no-repeat;
-   
+
     position: relative;
 
 }
@@ -274,7 +274,7 @@ html {
 /* Our services styling */
 .our-services {
     padding: 4rem 7%;
-    margin-top: 30px;
+    
 }
 
 .service-content {
