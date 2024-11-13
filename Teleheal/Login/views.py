@@ -24,7 +24,7 @@ class LoginView(View):
             if user.password == password:
                 login(request, user)
                 messages.success(request, f"Welcome, {user.name}!")
-                return redirect('home')
+                return redirect('profile')
             else:
                 messages.error(request, "Invalid password. Please try again.")
                 return redirect('login')
