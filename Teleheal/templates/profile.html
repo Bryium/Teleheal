@@ -39,6 +39,21 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+        .home-button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .home-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +83,9 @@
             <label for="gender">Gender:</label>
             <div class="field-value">{{ user_profile.gender }}</div>
         </div>
+
+        <!-- Home button -->
+        <a href="{% url 'home' %}" class="home-button">Home</a>
     </div>
 </body>
 </html>
