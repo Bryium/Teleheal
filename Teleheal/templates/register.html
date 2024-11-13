@@ -136,6 +136,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -429,8 +436,8 @@
 
 
 <script>
-    document.getElementById("registerButton").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent form submission for validation
+ document.getElementById("registerButton").addEventListener("click", function(event) {
+    event.preventDefault();
     if (validateRegistrationForm()) {
         // If the form is valid, submit the data
         submitForm();
@@ -438,6 +445,8 @@
 });
 
 function validateRegistrationForm() {
+    let isValid = true;
+
     // Clear previous error messages
     document.getElementById("nameError").innerText = "";
     document.getElementById("emailError").innerText = "";
@@ -446,8 +455,6 @@ function validateRegistrationForm() {
     document.getElementById("ageError").innerText = "";
     document.getElementById("genderError").innerText = "";
     document.getElementById("countryError").innerText = "";
-
-    let isValid = true;
 
     // Validate Name
     const name = document.getElementById("name").value;
@@ -508,8 +515,7 @@ function validateRegistrationForm() {
     return isValid;
 }
 
-function submitForm(event) {
-    event.preventDefault()
+function submitForm() {
     const data = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
@@ -519,12 +525,13 @@ function submitForm(event) {
         country: document.getElementById("country").value,
     };
 
-    // Validate required fields before sending the request
+    // Now, do not send the request if any data is missing or invalid
     if (!data.name || !data.email || !data.password || !data.age || !data.gender || !data.country) {
-        alert("All fields are required.");
+        // Validation failed, so stop form submission and display error messages
         return;
     }
 
+    // Proceed with sending the data if validation passes
     fetch("/register", {
         method: "POST",
         headers: {
