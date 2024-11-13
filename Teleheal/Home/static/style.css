@@ -105,7 +105,6 @@ html {
 }
 
 .background-image {
-    background: url("../images/bt.png");
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -272,6 +271,7 @@ html {
 /* Our services styling */
 .our-services {
     padding: 4rem 7%;
+    margin-top: 30px;
 }
 
 .service-content {
