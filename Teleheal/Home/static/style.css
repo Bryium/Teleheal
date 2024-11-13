@@ -1,6 +1,9 @@
 /* Home Page */
 /* root styling */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+  {% load static %}
 :root {
     --mainclr: #239f85;
     --secclr: #ff5d22;
@@ -106,10 +109,10 @@ html {
 
 .background-image {
     width: 100%;
-    height: 100vh;
+
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 6%;
+   
     position: relative;
 
 }

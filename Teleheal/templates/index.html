@@ -11,45 +11,53 @@
     {# Main CSS #}
     <link rel="stylesheet" href="{% static 'style.css' %}"/>
 
-     {# Main javascript #}
+    {# Main javascript #}
     <link rel="stylesheet" href="{% static 'script.js' %}"/>
 
-{# Font Awesome #}
+    {# Font Awesome #}
     <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.3-web/css/all.min.css' %}">
 
-{# Swipper Link #}
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    {# Swipper Link #}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 
-    {#      fontawesome link#}
+    {# fontawesome link#}
     <script src="https://kit.fontawesome.com/7427371865.js" crossorigin="anonymous"></script>
+
+    {# favicon.ico #}
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+
 
 </head>
 
 <body>
-    <!-- header -->
-    <header class="header">
-        <div class="logo">
-            <img src="{% static 'images/logo.png' %}" id="logo" alt="logo">
-            <h1 style="color: rgb(237, 10, 101);">Teleheal</h1>
-        </div>
+<!-- header -->
+<header class="header">
+    <div class="logo">
+        <img src="{% static 'images/logo.png' %}" id="logo" alt="logo">
+        <h1 style="color: rgb(237, 10, 101);">Teleheal</h1>
+    </div>
 
-        <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#about">about</a>
-            <a href="#services">services</a>
-            <a href="#gallery">gallery</a>
-            <a href="#contact">contact</a>
-        </nav>
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#services">services</a>
+        <a href="#gallery">gallery</a>
+        <a href="#contact">contact</a>
+    </nav>
 
-        <div class="icons">
-            <div id="menubar" class="fas fa-bars"></div>
-           <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
-        </div>
-    </header>
+    <div class="icons">
+        <div id="menubar" class="fas fa-bars"></div>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+</header>
 
-    <!-- heading -->
-    <section id="home">
+<!-- heading -->
+<section id="home">
     <div class="heading">
         <div class="heading-about">
             <div class="innerheading-about">
@@ -82,21 +90,22 @@
             </div>
         </div>
     </div>
-        </section>
+</section>
 
-    <!-- background-image -->
-    <div class="background-image">
-        <div class="background-content">
-            <h1>Exceptional <br> patient experience</h1>
-            <p>Delivering personalized, 24/7 virtual care with quick access <br> to certified doctors, seamless
-                appointment booking,<br> and clear communication. <br> Your health, convenience, and peace of mind are
-                our top priorities.</p>
-            <a href="#">Read more</a>
-        </div>
+<!-- background-image -->
+<div class="background-image">
+    <img src="{% static 'images/bt.png' %}" alt="image background" class="background-image">
+    <div class="background-content">
+        <h1>Exceptional <br> patient experience</h1>
+        <p>Delivering personalized, 24/7 virtual care with quick access <br> to certified doctors, seamless
+            appointment booking,<br> and clear communication. <br> Your health, convenience, and peace of mind are
+            our top priorities.</p>
+        <a href="#">Read more</a>
     </div>
+</div>
 
-    <!-- about -->
-    <section id="about">
+<!-- about -->
+<section id="about">
     <div class="about">
         <div class="main-about">
             <div class="inner-about">
@@ -110,15 +119,15 @@
             </div>
             <div class="inner-about">
                 <div class="inner-about-image">
-                   <img src="{% static 'images/chi.png' %}" alt="">
+                    <img src="{% static 'images/chi.png' %}" alt="">
                 </div>
             </div>
         </div>
     </div>
-        </section>
+</section>
 
-    <!-- Our services -->
-    <section id="services">
+<!-- Our services -->
+<section id="services">
     <div class="our-services">
         <div class="service-content">
             <div class="left-service-content">
@@ -162,15 +171,15 @@
             </div>
         </div>
     </div>
-        </section>
+</section>
 
-    <!-- Gallery -->
-    <section id="gallery">
+<!-- Gallery -->
+<section id="gallery">
     <div class="gallery">
         <h1>Gallery</h1>
         <div class="main-gallery">
             <div class="inner-gallery">
-              <img src="{% static 'images/gall1.png' %}" alt="Gallery 1">
+                <img src="{% static 'images/gall1.png' %}" alt="Gallery 1">
             </div>
 
             <div class="inner-gallery">
@@ -178,7 +187,7 @@
             </div>
 
             <div class="inner-gallery">
-               <img src="{% static 'images/gall3.png' %}" alt="Gallery 3">
+                <img src="{% static 'images/gall3.png' %}" alt="Gallery 3">
             </div>
 
             <div class="inner-gallery">
@@ -194,121 +203,121 @@
             </div>
         </div>
     </div>
-        </section>
+</section>
 
-    <!-- Why chose Us  -->
-    <div class="why-choseus">
-        <div class="main-chose">
-            <div class="inner-chose">
-                <img src="{% static 'images/cute.png' %}" alt="Why choose us image">
-            </div>
+<!-- Why chose Us  -->
+<div class="why-choseus">
+    <div class="main-chose">
+        <div class="inner-chose">
+            <img src="{% static 'images/cute.png' %}" alt="Why choose us image">
+        </div>
 
-            <div class="inner-chose">
-                <h1>why chose us </h1>
-                <div class="inner-chose-content">
-                    <div class="main-inner-chose">
-                        <div class="chose-icon">
-                            <i class="fas fa-notes-medical"></i>
-                        </div>
-                        <div class="icon-content">
-                            <p>We provide fast and easy access to healthcare from the comfort of your home. Our platform
-                                connects you with certified doctors anytime, making healthcare more convenient and
-                                accessible.</p>
-                        </div>
+        <div class="inner-chose">
+            <h1>why chose us </h1>
+            <div class="inner-chose-content">
+                <div class="main-inner-chose">
+                    <div class="chose-icon">
+                        <i class="fas fa-notes-medical"></i>
                     </div>
-
-                    <div class="main-inner-chose">
-                        <div class="chose-icon">
-                            <i class="fas fa-hospital-user"></i>
-                        </div>
-                        <div class="icon-content">
-                            <p>Your health and privacy are our top priorities. We use secure technology to keep your
-                                information safe, ensuring a trustworthy experience every time.</p>
-                        </div>
+                    <div class="icon-content">
+                        <p>We provide fast and easy access to healthcare from the comfort of your home. Our platform
+                            connects you with certified doctors anytime, making healthcare more convenient and
+                            accessible.</p>
                     </div>
+                </div>
 
-                    <div class="main-inner-chose">
-                        <div class="chose-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div class="icon-content">
-                            <p>With affordable pricing and no long wait times, our service is designed to save you time
-                                and money while delivering top-quality care when you need it most.</p>
-                        </div>
+                <div class="main-inner-chose">
+                    <div class="chose-icon">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <div class="icon-content">
+                        <p>Your health and privacy are our top priorities. We use secure technology to keep your
+                            information safe, ensuring a trustworthy experience every time.</p>
+                    </div>
+                </div>
+
+                <div class="main-inner-chose">
+                    <div class="chose-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="icon-content">
+                        <p>With affordable pricing and no long wait times, our service is designed to save you time
+                            and money while delivering top-quality care when you need it most.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Our special doctors -->
-    <div class="our-doctors">
-        <h1>Our special doctors</h1>
-        <div class="main-doctor">
-            <div class="inner-doctor">
-                <img src="{% static 'images/gall6.png' %}" alt="Special Doctor Gallery 6">
-                <div class="doc-icons">
-                    <div class="fab fa-facebook"></div>
-                    <div class="fab fa-twitter"></div>
-                    <div class="fab fa-instagram"></div>
-                    <div class="fab fa-linkedin"></div>
-                </div>
+<!-- Our special doctors -->
+<div class="our-doctors">
+    <h1>Our special doctors</h1>
+    <div class="main-doctor">
+        <div class="inner-doctor">
+            <img src="{% static 'images/gall6.png' %}" alt="Special Doctor Gallery 6">
+            <div class="doc-icons">
+                <div class="fab fa-facebook"></div>
+                <div class="fab fa-twitter"></div>
+                <div class="fab fa-instagram"></div>
+                <div class="fab fa-linkedin"></div>
             </div>
+        </div>
 
-            <div class="inner-doctor">
-                <img src="{% static 'images/gall5.png' %}" alt="Special Doctor Gallery 5">
-                <div class="doc-icons">
-                    <div class="fab fa-facebook"></div>
-                    <div class="fab fa-twitter"></div>
-                    <div class="fab fa-instagram"></div>
-                    <div class="fab fa-linkedin"></div>
-                </div>
+        <div class="inner-doctor">
+            <img src="{% static 'images/gall5.png' %}" alt="Special Doctor Gallery 5">
+            <div class="doc-icons">
+                <div class="fab fa-facebook"></div>
+                <div class="fab fa-twitter"></div>
+                <div class="fab fa-instagram"></div>
+                <div class="fab fa-linkedin"></div>
             </div>
+        </div>
 
-            <div class="inner-doctor">
-                <img src="{% static 'images/gall4.png' %}" alt="Special Doctor Gallery 4">
-                <div class="doc-icons">
-                    <div class="fab fa-facebook"></div>
-                    <div class="fab fa-twitter"></div>
-                    <div class="fab fa-instagram"></div>
-                    <div class="fab fa-linkedin"></div>
-                </div>
+        <div class="inner-doctor">
+            <img src="{% static 'images/gall4.png' %}" alt="Special Doctor Gallery 4">
+            <div class="doc-icons">
+                <div class="fab fa-facebook"></div>
+                <div class="fab fa-twitter"></div>
+                <div class="fab fa-instagram"></div>
+                <div class="fab fa-linkedin"></div>
             </div>
+        </div>
 
-            <div class="inner-doctor">
-                <img src="{% static 'images/gall3.png' %}" alt="Special Doctor Gallery 3">
-                <div class="doc-icons">
-                    <div class="fab fa-facebook"></div>
-                    <div class="fab fa-twitter"></div>
-                    <div class="fab fa-instagram"></div>
-                    <div class="fab fa-linkedin"></div>
-                </div>
+        <div class="inner-doctor">
+            <img src="{% static 'images/gall3.png' %}" alt="Special Doctor Gallery 3">
+            <div class="doc-icons">
+                <div class="fab fa-facebook"></div>
+                <div class="fab fa-twitter"></div>
+                <div class="fab fa-instagram"></div>
+                <div class="fab fa-linkedin"></div>
             </div>
+        </div>
 
-            <div class="inner-doctor">
-                <img src="{% static 'images/gall2.png' %}" alt="Special Doctor Gallery 2">
-                <div class="doc-icons">
-                    <div class="fab fa-facebook"></div>
-                    <div class="fab fa-twitter"></div>
-                    <div class="fab fa-instagram"></div>
-                    <div class="fab fa-linkedin"></div>
-                </div>
+        <div class="inner-doctor">
+            <img src="{% static 'images/gall2.png' %}" alt="Special Doctor Gallery 2">
+            <div class="doc-icons">
+                <div class="fab fa-facebook"></div>
+                <div class="fab fa-twitter"></div>
+                <div class="fab fa-instagram"></div>
+                <div class="fab fa-linkedin"></div>
             </div>
+        </div>
 
-            <div class="inner-doctor">
-                <img src="{% static 'images/gall1.png' %}" alt="Special Doctor Gallery 1">
-                <div class="doc-icons">
-                    <div class="fab fa-facebook"></div>
-                    <div class="fab fa-twitter"></div>
-                    <div class="fab fa-instagram"></div>
-                    <div class="fab fa-linkedin"></div>
-                </div>
+        <div class="inner-doctor">
+            <img src="{% static 'images/gall1.png' %}" alt="Special Doctor Gallery 1">
+            <div class="doc-icons">
+                <div class="fab fa-facebook"></div>
+                <div class="fab fa-twitter"></div>
+                <div class="fab fa-instagram"></div>
+                <div class="fab fa-linkedin"></div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <section id="contact">
+<!-- Footer -->
+<section id="contact">
     <div class="footer">
         <div class="main-footer">
             <div class="inner-footer">
@@ -341,7 +350,7 @@
                 <a href="#">
                     <div class="fab fa-facebook"></div>
                 </a>
-                 <a href="#">
+                <a href="#">
                     <div class="fab fa-twitter"></div>
                 </a>
                 <a href="#">
@@ -360,7 +369,7 @@
         </div>
 
     </div>
-        </section>
+</section>
 
 </body>
 
