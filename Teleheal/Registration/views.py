@@ -21,8 +21,9 @@ def register(request):
         if User.objects.filter(email=email).exists():
             return JsonResponse({"success": False, "message": "Email is already registered."})
 
-        # Save data to the database
+        # Save data to the database with password hashing
         user = User(name=name, email=email, password=password, age=age, gender=gender, country=country)
+        user.set_password(password)
         user.save()
 
         # Redirect to a success page or render a response
